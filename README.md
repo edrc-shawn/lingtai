@@ -12,12 +12,12 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/yourname/lingtai.git 灵台
+git clone https://github.com/erdong-risheng/lingtai.git 灵台
 cd 灵台
-# 用 Obsidian 打开此文件夹作为 vault
+python scripts/lingtai.py init        # 30秒初始化
+# 用 Obsidian 打开本文件夹作为 vault
+# 对 AI 说: "提炼"
 ```
-
-> 然后对 AI 说"提炼"——它会读代码，告诉你该做什么。
 
 ## 依赖
 
