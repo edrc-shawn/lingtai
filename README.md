@@ -119,6 +119,24 @@ AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知
 
 ---
 
+
+## macOS 兼容
+
+零台完全支持 macOS（以及 Linux），无平台依赖：
+
+- **Python**：使用系统自带的 python3 命令
+- **路径**：配置环境变量 LINGTAI_VAULT 指向零台目录即可
+- **编码**：默认 UTF-8，无需 GBK 回退
+- **Obsidian**：[下载 macOS 版](https://obsidian.md/download)
+
+`ash
+# 设置路径
+export LINGTAI_VAULT=/path/to/lingtai
+
+# 运行脚本
+python3 scripts/lingtai.py init
+`
+
 ## 许可
 
 MIT — 随便用，随便改，随便分发。
