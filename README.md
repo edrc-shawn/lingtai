@@ -30,7 +30,7 @@
 
 如果你会用 git：
 ```bash
-git clone https://github.com/erdong-risheng/lingtai.git
+git clone https://gitee.com/erdong-risheng/lingtai.git
 ```
 
 ### 2. 初始化
@@ -54,6 +54,20 @@ python scripts/lingtai.py init
 > 提炼
 
 AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知识就行。
+
+---
+
+## 进阶：灵识 MCP
+
+零台内置灵识 MCP Server 接入支持——一句话让任何 AI 直接查询你的知识库：
+
+```
+帮我配一个 MCP Server，让当前工具能访问「灵台」知识库。
+服务器文件：零台/.tool/lingshi/mcp_server.py
+工具是：___（填 WorkBuddy / MiMo Code / Cursor）
+```
+
+灵识提供 29 个工具：知识检索、图谱分析、自动观察、用户画像学习等。详见 [`.tool/lingshi/README.md`](.tool/lingshi/README.md)。
 
 ---
 
@@ -100,7 +114,7 @@ AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知
 
 灵台对 AI 有一套完整操作规范（台律），AI 会自动读。如果你想了解它怎么工作：
 - `AGENTS.md` — AI 启动入口
-- `台律/运行手册.md` — 完整提炼规则
+- `台律.md` — 完整操作规范
 - `索引.md` — 知识库目录
 
 ---
