@@ -33,8 +33,8 @@ class LLMReasoning:
     """灵台灵识 LLM推理引擎"""
     
     # 默认配置
-    DEFAULT_MODEL = "deepseek-v4-flash"
-    DEFAULT_API_URL = "https://token.sensenova.cn/v1"
+    DEFAULT_MODEL = os.environ.get("LLM_MODEL", "")
+    DEFAULT_API_URL = os.environ.get("LLM_API_URL", "")
     
     def __init__(self, config_path: str = None):
         """

@@ -33,7 +33,7 @@
 新会话 → context（三步启动协议）
 
 ### 规则⑤ 三步检索管线
-query+search → graph 3跳 → search_logs → tavily_search(可选)
+query+search → graph 3跳 → search_logs
 
 ### 规则⑥ 观察反馈
 save 返回值含 observation_feedback 时告知用户
