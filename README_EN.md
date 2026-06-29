@@ -1,6 +1,8 @@
 # LingTai (零台) — AI Content Production System for Solopreneurs
 
-> _One human CEO commanding an AI workforce. Daily production, not a demo._
+> **Raw notes → Structured knowledge. 29 MCP tools, MIT open source, zero API dependencies.**
+> 
+> _One human + AI production system. Not a chatbot — your knowledge assembly line._
 
 [Gitee Main Repo](https://gitee.com/erdong-risheng/lingtai) | [GitHub Mirror](https://github.com/erdong-risheng/lingtai) | MIT License
 
