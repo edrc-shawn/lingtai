@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "lingtai-kb": {
+      "command": "python3",
+      "args": [".tool/lingshi/mcp_server.py"],
+      "env": {
+        "LINGTAI_VAULT": "/path/to/lingtai"
+      }
+    }
+  }
+}

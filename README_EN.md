@@ -1,19 +1,62 @@
-# Lingtai (零台)
+# LingTai (零台) — AI Content Production System for Solopreneurs
 
-> Turn scattered notes into a searchable, self-growing knowledge base.
-> You just drop notes in — AI organizes, connects, and finds the gaps.
+> _One human CEO commanding an AI workforce. Daily production, not a demo._
 
----
+[Gitee Main Repo](https://gitee.com/erdong-risheng/lingtai) | [GitHub Mirror](https://github.com/erdong-risheng/lingtai) | MIT License
 
-## What is Lingtai?
+***
 
-Lingtai is an **open-source, AI-powered knowledge management system** built on top of an Obsidian vault. It turns raw notes (clippings, thoughts, articles) into a structured wiki with cross-references, quality grading, and automated maintenance.
+## The Story Behind the Name
 
-The core philosophy: **AI prepares the ammo, you pull the trigger.**
+**零台** comes from Zhuangzi:
 
----
+> *"工倕旋而盖规矩，指与物化而不以心稽，故其灵台一而不桎."*
+> — Zhuangzi, *Dasheng*
 
-## Quick Start (3 steps)
+The craftsman drew circles truer than a compass — not because of skill, but because **his hand and the object became one, his mind unblocked, his spirit focused without constraint.**
+
+"LingTai" first appeared as a Daoist concept. Guo Xiang's commentary says it best: **"LingTai is the heart-mind."** It is the dwelling place of the spirit, the source of clear insight.
+
+> _A clear mind lets the hand become one with the work. A mirror that does not lie. A production system that does not deceive itself._
+
+***
+
+## Architecture
+
+`
+                          ┌──────────────────────────────┐
+                          │    Obsidian (Knowledge UI)    │
+┌─────────────────────────┴──────────────────────────────┘
+│  LingShi (灵识) — Cognitive Engine
+│  ├── 29 MCP Tools (knowledge retrieval, graph, memory)
+│  ├── Observation Engine + Hebbian Weights
+│  └── User Profile Learning
+│
+│  LingTai (灵台) — Knowledge Pipeline
+│  ├── Raw Material -> Distillation -> DanFang (Wiki)
+│  ├── Grade Assessment -> Health Check
+│  └── 166+ pages, 12 domains
+│
+│  SkillOpt — Self-Evolution Engine
+│  ├── Test-case gated improvement
+│  └── Refinement workflow optimization
+└────────────────────────────────────────────────────────
+`
+
+***
+
+## Key Capabilities
+
+- **29 MCP tools**: knowledge retrieval, graph analysis, observation learning, perception reasoning, model routing
+- **6 automated tasks**: Daily Briefing, Inspection, Introspection, Weekly Review, Monthly Query, Auto Distillation
+- **3-tier quality grading**: Top (上品) / Mid (中品) / Raw (下品)
+- **Self-evolving rulebook**: SkillOpt methodology — change with test-case validation
+- **Pluggable MCP**: delete .tool/lingshi/ and core pipeline still works
+- **Zero external API dependency**: all tools work offline with local knowledge base
+
+***
+
+## Quick Start
 
 ### 1. Get the repo
 
@@ -25,86 +68,49 @@ cd lingtai
 ### 2. Init
 
 `ash
+# macOS / Linux
 python3 scripts/lingtai.py init
+
+# Windows
+python scripts/lingtai.py init
 `
 
-> On Windows, use \python\ instead of \python3\.
+### 3. Drop notes and call AI
 
-### 3. Drop notes + call AI
-
-**Drop notes**: Put your markdown files into the \原料/\ folder.
-
-**Call AI**: Open your AI assistant with this repo as the working directory, then say:
+Put markdown files into **原料/** (raw materials). Then tell your AI assistant:
 
 > refine
 
-The AI will read the rules and start refining your notes into structured knowledge pages in \丹房/\.
+The AI reads the rules, refines your notes into structured wiki pages in **丹房/**.
 
----
+### 4. Enable MCP (optional)
 
-## Lingtai MCP (optional but powerful)
+Add the MCP server to your AI client config:
 
-Lingtai includes a built-in Model Context Protocol (MCP) server — **29 tools** for knowledge retrieval, graph analysis, observation learning, and more.
-
-**Setup**: Configure your AI client to run:
-
-`ash
-python3 .tool/lingshi/mcp_server.py
+`json
+{
+  "mcpServers": {
+    "lingtai-kb": {
+      "command": "python3",
+      "args": [".tool/lingshi/mcp_server.py"],
+      "env": {
+        "LINGTAI_VAULT": "/path/to/lingtai"
+      }
+    }
+  }
+}
 `
 
-With the environment variable:
+***
 
-`ash
-export LINGTAI_VAULT=/path/to/lingtai
-`
+## Why Open Source?
 
----
+> _"Open source the skeleton to set the standard. Keep the flesh as a moat."_
 
-## Directory Structure
+LingTai is fully open (MIT) because sharing the paradigm matters more than hiding the code. What stays private: personal notes, user profiles, API credentials, and operational history from the author's own pipeline — your 365 days of data is your real moat.
 
-`
-lingtai/
-├── CLAUDE.md          ← Rulebook (single source of truth)
-├── AGENTS.md          ← AI entry point
-├── 索引.md            ← Full knowledge index
-├── 原料/              ← Raw materials (notes, clippings, articles)
-├── 丹房/              ← Refined wiki pages (auto-generated)
-├── 体检/              ← Health check reports
-├── 入门/              ← User guide + profile
-├── 巡更/              ← Automation workflows
-├── 输出/              ← Output skills (writing, publishing)
-├── scripts/           ← Helper scripts
-└── .tool/lingshi/     ← Lingtai MCP (29 tools)
-`
+***
 
----
+Built by [耳东日成](https://gitee.com/erdong-risheng)
 
-## Requirements
-
-| Dependency | Required? | Notes |
-|---|---|---|
-| Python 3.10+ | ✅ | For init script and health checks |
-| AI assistant | ✅ | Lingtai itself has no built-in AI |
-| Obsidian | 🔶 Recommended | Not required, but great for visualization |
-| Git | ❌ | You can download the ZIP instead |
-
-**Recommended AI assistants**: Claude, WorkBuddy, ChatGPT — any of them work.
-
----
-
-## macOS Support
-
-Set the environment variable and use \python3\:
-
-`ash
-export LINGTAI_VAULT=/path/to/lingtai
-python3 scripts/lingtai.py init
-`
-
-See \AGENTS.md\ for full AI startup protocol.
-
----
-
-## License
-
-MIT — free to use, modify, and distribute.
+_One human CEO + one AI army. Daily production since 2025._
