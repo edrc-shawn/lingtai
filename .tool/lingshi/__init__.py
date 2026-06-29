@@ -18,7 +18,6 @@ from .auto_edge import AutoEdge, create_auto_edge
 from .reasoning_engine import ReasoningEngine, create_reasoning_engine
 from .llm_reasoning import LLMReasoning, create_llm_reasoning
 from .token_monitor import TokenMonitor, create_token_monitor
-from .lingtai_integration import LingtaiIntegration, create_lingtai_integration
 
 __version__ = "2.1.0"
 __author__ = "灵台用户"
@@ -35,7 +34,6 @@ __all__ = [
     "create_reasoning_engine",
     "create_llm_reasoning",
     "create_token_monitor",
-    "create_lingtai_integration",
 ]
 
 
@@ -55,5 +53,4 @@ def create_lingshi(vault_path: str = None):
         "reasoning": create_reasoning_engine(use_llm=True),
         "llm": create_llm_reasoning(),
         "token_monitor": create_token_monitor(),
-        "integration": create_lingtai_integration(vault_path),
     }
