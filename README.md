@@ -1,7 +1,7 @@
 # 灵台（Lingtai）
 
 > **零散笔记 → 结构化知识库。29 个 MCP 工具，MIT 开源，零 API 依赖。**
-> 
+>
 > 一个人 + AI 的生产系统。扔笔记、提炼、出稿，全链路闭环。
 > 不是 Chatbot，是你的知识生产线。
 >
@@ -73,6 +73,63 @@ AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知
 
 ---
 
+## 核心架构
+
+### 记忆引擎（Memory Engine）
+
+基于 n-gram 回退的智能检索系统，支持：
+
+- **精确匹配**：完全匹配关键词
+- **模糊匹配**：自动 n-gram 回退检索
+- **图扩散**：按跳数（hops）探索知识网络，返回加权结果
+
+### 感知规则（Perception）
+
+5 条核心感知规则自动运行：
+
+- 规则①：知识注入时自动关联
+- 规则②：自动学习用户偏好
+- 规则③：智能推荐相关内容
+- 规则④：会话上下文保持
+- 规则⑤：三步检索管线
+
+### KAR 融合
+
+统一查询接口，结合知识库检索 + 图谱关联 + LLM 推理：
+
+- **统一查询**：一次性获取知识、关联、推理结果
+- **链式查询**：多关键词串联检索
+- **主题探索**：从主题出发探索知识网络
+
+### LLM 推理
+
+支持 DeepSeek 等大语言模型：
+
+- 文本分析
+- 摘要提取
+- 洞察发现
+- 智能关联建议
+
+---
+
+## MCP 工具列表
+
+灵识 MCP Server 提供 35+ 个工具，主要包括：
+
+| 类别 | 工具 |
+|------|------|
+| 知识查询 | `query`, `search`, `unified_query`, `chain_query`, `explore_topic` |
+| 图谱分析 | `graph`, `related`, `analyze`, `find_clusters`, `centrality` |
+| 感知注入 | `inject`, `save`, `observations`, `recommend` |
+| Token 监控 | `token`, `get_savings`, `generate_daily_report` |
+| 用户画像 | `profile`, `push`, `push_batch`, `get_pushes` |
+| 自检系统 | `check_status`, `selfcheck`, `skillopt_*` |
+| 规则查询 | `rules`, `get_filename_rules`, `get_link_rules` |
+
+详见 [`.tool/lingshi/README.md`](.tool/lingshi/README.md)
+
+---
+
 ## 你需要什么
 
 | 东西 | 必须？ | 说明 |
@@ -121,7 +178,6 @@ AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知
 
 ---
 
-
 ## macOS 兼容
 
 零台完全支持 macOS（以及 Linux），无平台依赖：
@@ -131,14 +187,46 @@ AI 会自己读规则，知道该怎么做。你等着看 `丹房/` 里长出知
 - **编码**：默认 UTF-8，无需 GBK 回退
 - **Obsidian**：[下载 macOS 版](https://obsidian.md/download)
 
-`ash
+```bash
 # 设置路径
 export LINGTAI_VAULT=/path/to/lingtai
 
 # 运行脚本
 python3 scripts/lingtai.py init
-`
+```
+
+---
+
+## 目录结构
+
+```
+灵台/
+├── 原料/                    # 原始笔记输入
+├── 丹房/                   # 整理后的知识库
+├── 入门/                   # 用户画像配置
+├── .tool/
+│   └── lingshi/            # 灵识 MCP 核心模块
+│       ├── mcp_server.py   # MCP 服务器入口
+│       ├── memory_engine.py    # 记忆引擎
+│       ├── perception.py        # 感知工具
+│       ├── kar_fusion.py       # KAR 融合
+│       ├── llm_reasoning.py    # LLM 推理
+│       ├── observation_engine.py  # 观察引擎
+│       ├── token_monitor.py   # Token 监控
+│       └── ...
+├── scripts/
+│   ├── lingtai.py         # 主入口脚本
+│   ├── check_log.py        # 日志检查
+│   ├── lint_check.py      # Markdown 检查
+│   └── semantic_scan.py  # 语义扫描
+├── config/                 # 配置文件
+├── AGENTS.md              # AI 启动协议
+├── CLAUDE.md              # 项目规则
+└── README.md             # 主文档
+```
+
+---
 
 ## 许可
 
-MIT — 随便用，随便改，随便分发。
+MIT — 随便用，随便改随便分发。
